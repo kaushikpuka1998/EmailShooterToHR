@@ -16,7 +16,7 @@ def send_email(to_email, subject, email_body, recipient_name, company_name):
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
     from_email = 'yourmail@gmail.com'  # Replace with your email
-    password = 'xxxx xxxx xxxx xxxx'  # Replace with your email password
+    password = 'xxxx xxxx xxxx xxxx'# Replace with your email password
 
     # Setup the MIME
     msg = MIMEMultipart('related')
@@ -34,7 +34,7 @@ def send_email(to_email, subject, email_body, recipient_name, company_name):
     msg_alternative.attach(MIMEText(email_body, 'html'))
 
     # Attach the image
-    with open('/home/kaushik/Downloads/profile-pic (2).png', 'rb') as img_file:
+    with open('./profile-pic (2).png', 'rb') as img_file:
         msg_image = MIMEImage(img_file.read())
         msg_image.add_header('Content-ID', '<image1>')
         msg.attach(msg_image)
@@ -65,8 +65,8 @@ def get_recipients_from_excel(file_path):
 
 if __name__ == '__main__':
     # Paths to the files
-    email_body_file = '/home/kaushik/Desktop/emailer/src/main/resources/email_body.txt'
-    excel_file = '/home/kaushik/Downloads/hr_details.xlsx'
+    email_body_file = './email_body.txt'
+    excel_file = './hr_details.xlsx'
 
     # Getting email body
     email_body = get_email_body(email_body_file)
